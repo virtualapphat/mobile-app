@@ -1,0 +1,19 @@
+{
+	"compilerOptions": {
+		"module": "es6",
+		"target": "es6"
+	},
+	"exclude": ["node_modules"],
+	"baseUrl": "src",
+	"include": ["src"],
+	"paths": {
+		"components/*": "./src/components/*",
+		"screens/*": "./src/screens/*",
+		"navigation/*": "./src/navigation/*",
+		"constants/*": "./src/constants/*",
+		"utils/*": "./src/utils/*",
+		"assets/*": "./src/assets/*",
+		"models/*": "./src/models/*",
+		"store/*": "./src/store/*"
+	}
+}
