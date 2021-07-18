@@ -1,6 +1,9 @@
 export const COLORS = {
-	PRIMARY: '',
+	PRIMARY: '#CE295E',
 	SECONDARY: '',
+	GRAY: '#7F7F7F',
+	GRAY_LIGHT: '#A6A6A6',
+	GRAY_DARK: '#404040',
 };
 
 export const FONTS = {

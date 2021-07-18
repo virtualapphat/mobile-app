@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Modal, ImageBackground } from 'react-native';
 
-import { ROUTES } from 'constants';
+import { ROUTES,COLORS } from 'constants';
 import { Button, Icon } from 'components';
 
 function Screen(props) {
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column',
+		backgroundColor: COLORS.GRAY_DARK
 	},
 	image: {
 		flex: 1,

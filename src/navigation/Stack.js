@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as Screens from 'screens';
 import { HeaderButton, HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { Ionicons } from '@expo/vector-icons';
-import { ROUTES } from 'constants';
+import { ROUTES, COLORS } from 'constants';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +15,7 @@ const defaultNavigationOptions = props => {
 	return {
 		title: 'VIRTUAL HAT',
 		headerStyle: {
-			backgroundColor: 'blue',
+			backgroundColor: COLORS.GRAY,
 		},
 		headerTintColor: 'white',
 		headerTitleStyle: {
