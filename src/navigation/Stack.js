@@ -60,6 +60,12 @@ export function HomeStackNavigator() {
 				component={Screens.CreateHat}
 				options={{ title: 'Create Hat' }}
 			/>
+			<Stack.Screen
+				name={ROUTES.SIGN_UP}
+				component={Screens.SignUpScreen}
+				options={{ title: 'SIGN_UP' }}
+			/>
+			<Stack.Screen name={ROUTES.LOGIN} component={Screens.Login} options={{ title: 'LOGIN' }} />
 		</Stack.Navigator>
 	);
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	StyleSheet,
 	View,
@@ -12,7 +12,7 @@ import 'react-native-get-random-values';
 import { nanoid, customAlphabet } from 'nanoid';
 
 import { ROUTES } from 'constants';
-
+import { FirebaseApi } from 'api';
 
 const names = customAlphabet('qwertyuiopasdfghjklzxcvbnm', 6);
 
@@ -33,6 +33,14 @@ function Screen(props) {
 	function onClick() {
 		props.navigation.goBack();
 	}
+
+	const [hats, setHats] = useState([]);
+
+	useEffect(() => {
+		FirebaseApi.database.getAll('hats').then(data => setHats(data));
+	}, []);
+
+	console.log('hats', hats);
 
 	const renderListItem = itemData => {
 		const onClickHat = () => {
@@ -58,7 +66,7 @@ function Screen(props) {
 
 	return (
 		<View>
-			<FlatList style={styles.list} data={listData} renderItem={renderListItem} numColumns={1} />
+			<FlatList style={styles.list} data={hats} renderItem={renderListItem} numColumns={1} />
 			<Text>Hats Screen</Text>
 			<Button onPress={onClick} title='Back' />
 		</View>

@@ -1,17 +1,19 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import AppNavigator from 'navigation';
+import AppNavigator, { navigationRef } from 'navigation';
 import AppLoading from 'expo-app-loading';
 
 // store
 import { store } from 'store';
 import { Provider } from 'react-redux';
 
-import * as Font from 'expo-font';
+// init firebase
+import { FirebaseApi } from 'api';
 
+import * as Font from 'expo-font';
 
 function fetchFonts() {
 	return Font.loadAsync({
@@ -21,8 +23,16 @@ function fetchFonts() {
 
 // DEMO
 
-export default function App() {
+export default function App(props) {
 	const [ready, setReady] = useState(false);
+
+	useEffect(() => {
+		const unsubscribe = FirebaseApi.observe(user => {
+			console.log('user', props);
+			unsubscribe();
+			navigationRef.current?.navigate(user ? 'HOME' : 'LOGIN');
+		});
+	}, []);
 
 	if (!ready) {
 		return (

@@ -3,7 +3,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
 	name: 'user',
 	initialState: {
-		data: null
+		data: null,
 	},
 	reducers: {
 		increment: state => {
@@ -27,6 +27,11 @@ export const Actions = {
 	user: userSlice.actions,
 };
 
+export const Selectors = {
+	user: {
+		getData: state => state.user.data,
+	},
+};
 
 export const store = configureStore({
 	reducer: {

@@ -1,5 +1,10 @@
 import React from 'react';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {
+	createDrawerNavigator,
+	DrawerItem,
+	DrawerItemList,
+	DrawerContentScrollView,
+} from '@react-navigation/drawer';
 
 import {
 	HomeStackNavigator,
@@ -10,13 +15,36 @@ import {
 	TermsOfPolicyStackNavigator,
 } from './Stack';
 
+import * as Screens from 'screens';
+
 import { ROUTES } from 'constants';
+
+import { FirebaseApi } from 'api';
 
 const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
 	return (
-		<Drawer.Navigator>
+		<Drawer.Navigator
+			drawerContent={props => (
+				<DrawerContentScrollView {...props}>
+					<DrawerItem
+						label='Hats'
+						onPress={() => {
+							props.navigation.navigate('HATS');
+						}}
+					/>
+					<DrawerItemList {...props} />
+					<DrawerItem
+						label='Logout'
+						onPress={() => {
+							FirebaseApi.signOut();
+							props.navigation.navigate('LOGIN');
+						}}
+					/>
+				</DrawerContentScrollView>
+			)}
+		>
 			<Drawer.Screen name={ROUTES.HOME} component={HomeStackNavigator} />
 			<Drawer.Screen name={ROUTES.SETTINGS} component={SettingsStackNavigator} />
 			<Drawer.Screen name={ROUTES.SUPPORT} component={SupportStackNavigator} />

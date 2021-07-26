@@ -11,9 +11,11 @@ import { ROUTES } from 'constants';
 
 import Drawer from './Drawer';
 
+export const navigationRef = React.createRef();
+
 function Navigator() {
 	return (
-		<NavigationContainer>
+		<NavigationContainer ref={navigationRef}>
 			<Drawer />
 		</NavigationContainer>
 	);

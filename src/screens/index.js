@@ -8,6 +8,7 @@ import PrivacyPolicyScreen from './PrivacyPolicyScreen';
 import TermsOfPolicyScreen from './TermsOfPolicyScreen';
 import SettingsScreen from './SettingsScreen';
 import SupportScreen from './SupportScreen';
+import { SignUpScreen, Login } from './Auth';
 
 /**
  * A module that says hello!
@@ -23,4 +24,6 @@ export {
 	SupportScreen,
 	SettingsScreen,
 	TermsOfPolicyScreen,
+	SignUpScreen,
+	Login,
 };

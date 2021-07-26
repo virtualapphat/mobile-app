@@ -1,8 +1,8 @@
 import React from 'react';
 import { TextInput, StyleSheet, View } from 'react-native';
 
-function Button({ onPress, children }) {
-	return <TextInput style={styles.input} keyboardType='phone-pad' />;
+function Input({ ...rest }) {
+	return <TextInput style={styles.input} {...rest} />;
 }
 
 const styles = StyleSheet.create({
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Button;
+export default Input;
