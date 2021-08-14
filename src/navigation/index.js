@@ -21,4 +21,4 @@ function Navigator() {
 	);
 }
 
-export default Navigator;
+export { Navigator };

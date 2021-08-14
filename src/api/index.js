@@ -36,10 +36,21 @@ const database = {
 		});
 		return result;
 	},
+	getHat: async id => {
+		const doc = await db.collection('hats').doc(id).get();
+
+		return { ...doc.data(), id: doc.id };
+	},
 };
 
 const auth = {
 	currentUser: () => firebase.auth().currentUser,
+	observe: callback => {
+		const unsubscribe = firebase.auth().onAuthStateChanged(userCredential => {
+			callback(userCredential);
+		});
+		return unsubscribe;
+	},
 };
 
 export const FirebaseApi = {
@@ -47,6 +58,9 @@ export const FirebaseApi = {
 	auth: auth,
 	currentUser: () => {
 		return firebase.auth().currentUser;
+	},
+	getHat: async id => {
+		return database.getHat(id);
 	},
 	signOut: async () => {
 		try {

@@ -40,11 +40,13 @@ function Screen(props) {
 		FirebaseApi.database.getAll('hats').then(data => setHats(data));
 	}, []);
 
-	console.log('hats', hats);
 
 	const renderListItem = itemData => {
 		const onClickHat = () => {
-			props.navigation.navigate(ROUTES.HAT, { hatName: itemData.item.name });
+			props.navigation.navigate(ROUTES.HAT, {
+				hatName: itemData.item.name,
+				id: itemData.item.id,
+			});
 		};
 		return (
 			<TouchableOpacity style={styles.item} onPress={onClickHat}>
