@@ -1,15 +1,24 @@
-import React from 'react';
-import { StyleSheet, View, Text, Modal, ImageBackground } from 'react-native';
+import React, { useRef, useEffect } from 'react';
+import { StyleSheet, View, Text, Modal, ImageBackground, Animated } from 'react-native';
 
-import { ROUTES,COLORS } from 'constants';
+import { ROUTES, COLORS } from 'constants';
 import { Button, Icon } from 'components';
 
 function Screen(props) {
 	function onClick() {
 		props.navigation.navigate(ROUTES.CREATE_HAT);
 	}
+	const position = useRef(new Animated.ValueXY({ x: 0, y: -1000 })).current;
+
+	useEffect(() => {
+		Animated.spring(position, {
+			toValue: { x: 0, y: 0 },
+			useNativeDriver: false,
+		}).start();
+	}, []);
+
 	return (
-		<View style={styles.container}>
+		<Animated.View style={{ ...styles.container, ...position.getLayout() }}>
 			<ImageBackground
 				resizeMode='contain'
 				source={require('assets/images/hat.jpeg')}
@@ -17,7 +26,7 @@ function Screen(props) {
 			>
 				<Button onPress={onClick}>Open V-Hat</Button>
 			</ImageBackground>
-		</View>
+		</Animated.View>
 	);
 }
 
@@ -27,7 +36,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		flexDirection: 'column',
-		backgroundColor: COLORS.GRAY_DARK
+		backgroundColor: COLORS.GRAY_DARK,
 	},
 	image: {
 		flex: 1,
