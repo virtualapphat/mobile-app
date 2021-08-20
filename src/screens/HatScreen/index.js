@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, View, ActivityIndicator, Animated } from 'react-native';
 
 import { ROUTES, COLORS } from 'constants';
 import { Button, Text } from 'components';
@@ -10,6 +10,8 @@ import { globalStyles } from 'styles';
 function Screen({ route, navigation }) {
 	const [hat, setHat] = useState(null);
 	const [closed, setClosed] = useState(false);
+
+
 	function onClick() {
 		// navigation.navigate(ROUTES.HATS);
 	}
@@ -31,6 +33,7 @@ function Screen({ route, navigation }) {
 		return (
 			<View style={{ ...globalStyles.page, ...styles.container }}>
 				<Text>name: {hat.name}</Text>
+
 				<Text>collected: 100</Text>
 				<Text>fee: 5</Text>
 				<Text>total: 95</Text>
@@ -62,6 +65,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	row: {
-		marginVertical: 16
-	}
+		marginVertical: 16,
+	},
 });

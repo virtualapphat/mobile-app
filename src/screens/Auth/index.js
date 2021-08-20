@@ -6,7 +6,7 @@ import { Field } from 'components';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
-import { Actions } from 'redux';
+import { Actions } from 'appStore';
 
 import { FirebaseApi } from 'api';
 
@@ -32,7 +32,7 @@ function SignUpScreen(props) {
 		if (error) {
 			return alert(error.message);
 		}
-		dispatch(Actions.setUser(user));
+		dispatch(Actions.user.setUser(user));
 	}
 
 	return (

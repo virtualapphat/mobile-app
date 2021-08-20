@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { ROUTES, COLORS } from 'constants';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { Selectors, Actions } from 'redux';
+import { Selectors, Actions } from 'appStore';
 
 import { FirebaseApi } from 'api';
 

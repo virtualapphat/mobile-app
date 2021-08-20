@@ -22,7 +22,7 @@ import { ROUTES } from 'constants';
 
 import { FirebaseApi } from 'api';
 
-import { Actions } from 'redux';
+import { Actions } from 'appStore';
 import { useDispatch } from 'react-redux';
 
 const Drawer = createDrawerNavigator();

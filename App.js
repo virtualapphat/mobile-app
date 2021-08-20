@@ -7,32 +7,22 @@ import { navigationRef, Navigator } from 'navigation';
 import AppLoading from 'expo-app-loading';
 
 // store
-import { store } from 'redux';
+import { store } from 'appStore';
 import { Provider, useDispatch } from 'react-redux';
 
 // init firebase
 import { FirebaseApi } from 'api';
-import { Selectors, Actions } from 'redux';
+import { Selectors, Actions } from 'appStore';
 
 import * as Font from 'expo-font';
 
 
-import Zabo from 'zabo-sdk-js';
 
-// Zabo
-// .connect()
-// .onConnection(data => {
-// 	account = data;
-// 	console.log(account);
-// })
-// .onError(error => {
-// 	console.error('account connection error:', error);
-// });
 
 
 function fetchFonts() {
 	return Font.loadAsync({
-		Satisfy: require('assets/fonts/Satisfy-Regular.ttf'),
+		Satisfy: require('assets/fonts/Satisfy_Regular.ttf'),
 	});
 }
 
