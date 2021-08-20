@@ -1,9 +1,10 @@
 export const COLORS = {
 	PRIMARY: '#CE295E',
-	SECONDARY: '',
+	SECONDARY: '#dbdb4b',
 	GRAY: '#7F7F7F',
 	GRAY_LIGHT: '#A6A6A6',
 	GRAY_DARK: '#404040',
+	WHITE: 'white',
 };
 
 export const FONTS = {
@@ -20,4 +21,7 @@ export const ROUTES = {
 	TERMS_OF_SERVICE: 'TERMS_OF_SERVICE',
 	SUPPORT: 'SUPPORT',
 	SETTINGS: 'SETTINGS',
+	SIGN_UP: 'SIGN_UP',
+	LOGIN: 'LOGIN',
+	PAY: 'PAY',
 };
